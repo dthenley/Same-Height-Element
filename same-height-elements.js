@@ -1,5 +1,17 @@
+$( document ).ready(function() {
+    height_function();
+    $(window).resize(height_function);
+});
+
+
+
+function height_function(){
 $('.element-container').ready(function(){
 	var max_height = 0;
+	$(this).find('.single-element').each(function(){
+		$(this).height('auto');
+	})	
+
 	$(this).find('.single-element').each( function(){
 		max_height = max_height > $(this).height() ? max_height : $(this).height();
 	});
@@ -7,3 +19,4 @@ $('.element-container').ready(function(){
 		$(this).height(max_height);
 	})
 });
+}
